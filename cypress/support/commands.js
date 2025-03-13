@@ -48,6 +48,8 @@
   //     throw new Error(`Failed to parse JSON: ${error.message}`);
   //   }
   // });
+  const { faker } = require("@faker-js/faker");
+  
   Cypress.Commands.add('GenerateAndGetToken', () => {
     // const clientname = 'Automation_test';
     // const clientemail = 'Automation_test@example.com';

@@ -3,6 +3,9 @@
  
 # modules
 /node_modules
+
+# jar
+/MySpring-1.0.1.jar
  
 # built package after `npm pack`
 /package
