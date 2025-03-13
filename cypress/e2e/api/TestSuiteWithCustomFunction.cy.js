@@ -33,7 +33,7 @@ describe('用户 API 测试套件', () => {
     it("get all orders", () => {
         cy.log("get all orders with token is",newAuthToken);
         cy.request({
-            method: 'Get',
+            method: 'GET',
             url: testUrl,
             headers: { Authorization: `Bearer ${newAuthToken}` },
             cookies:{'cookieName':'mycookie'}
