@@ -1,9 +1,4 @@
 /// <reference types="cypress" />
- // POST https://gorest.co.in/public/v2/users'
-// Get https://gorest.co.in/public/v2/users
-// PUT https://gorest.co.in/public/v2/users/${userId}
-// Delete https://gorest.co.in/public/v2/users/${userId}
-
 
 describe("go to baidu", () => {
     it("open baidu page", () => {

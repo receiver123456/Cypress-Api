@@ -19,14 +19,12 @@ describe("Gorest API Chaining", () => {
                     expect(response.status).to.equal(201);
                     cy.log('new create user data', response.body.id);
                     const userId = response.body.id;
-                    const getUrl = Cypress.config('baseUrl') + '/public/v2/users/' + `${userId}`;
-                    const putUrl = Cypress.config('baseUrl') + '/public/v2/users/' + `${userId}`;
-                    const deleteUrl = Cypress.config('baseUrl') + '/public/v2/users/' + `${userId}`;
+                    const test_Url = Cypress.config('baseUrl') + '/public/v2/users/' + `${userId}`;
                     const updateName = 'automtion_updating_user';
                     //get user name
                     cy.request({
                         method: 'GET',
-                        url: getUrl,
+                        url: test_Url,
                         headers: { Authorization: Cypress.config('auth_token') }
                     })
                         .then((response) => {
@@ -37,7 +35,7 @@ describe("Gorest API Chaining", () => {
                     //update user name
                     cy.request({
                         method: 'PUT',
-                        url: putUrl,
+                        url: test_Url,
                         body: { name: updateName },
                         headers: { Authorization: Cypress.config('auth_token') }
                     })
@@ -49,7 +47,7 @@ describe("Gorest API Chaining", () => {
                     //delete user name
                     cy.request({
                         method: 'DELETE',
-                        url: deleteUrl,
+                        url: test_Url,
                         headers: { Authorization: Cypress.config('auth_token') }
                     })
                         .then((response) => {
@@ -58,7 +56,7 @@ describe("Gorest API Chaining", () => {
                     //get user name
                     cy.request({
                         method: 'GET',
-                        url: getUrl,
+                        url: test_Url,
                         headers: { Authorization: Cypress.config('auth_token') },
                         failOnStatusCode: false, // 允许非 2xx/3xx 状态码
                     })

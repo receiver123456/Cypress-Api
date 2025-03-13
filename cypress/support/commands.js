@@ -48,4 +48,23 @@
   //     throw new Error(`Failed to parse JSON: ${error.message}`);
   //   }
   // });
+  Cypress.Commands.add('GenerateAndGetToken', () => {
+    // const clientname = 'Automation_test';
+    // const clientemail = 'Automation_test@example.com';
+    const clientname = faker.internet.username();
+    const clientemail = faker.internet.email();
+    cy.request({
+      method: 'POST',
+      url: 'https://simple-books-api.glitch.me/api-clients/',
+      body: {clientName:clientname, clientEmail:clientemail}
+    })
+    .then((response) => {
+      return response.body.accessToken; // 返回 Token
+    });
+  });
 
+  // Cypress.Commands.add('ensureAuth', () => {
+  //   if (!Cypress.env('authToken')) {
+  //     cy.GenerateAndGetToken(); // 自定义登录命令
+  //   }
+  // });
